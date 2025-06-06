@@ -113,3 +113,8 @@ caption: [juliaのループ],
 
 注釈を挿入することも可能です．
 このように書く#footnote[注釈の中身]ことで，文書の下に注釈が追加されます．
+
+#bibliography-list(
+  title: [参考文献],
+  ..bib-file(read("refs.bib")),
+)

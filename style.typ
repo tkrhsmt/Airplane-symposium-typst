@@ -12,6 +12,8 @@
 #import "@preview/physica:0.9.4": *
 #import "@preview/unify:0.7.0": *
 #import "@preview/subpar:0.2.0"
+#import "@preview/enja-bib:0.1.0": *
+#import bib-setting-jsme: *
 
 // import files
 #import "local_functions.typ": *
@@ -223,6 +225,9 @@
 
   // set vertical space
   v(-1em)
+
+  // set bibliography
+  show: bib-init
 
   // change number size
   let cjk-number = regex("[０-９]")
