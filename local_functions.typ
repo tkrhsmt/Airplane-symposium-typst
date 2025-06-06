@@ -96,8 +96,8 @@
   let frame(stroke) = (x, y) => (
     left: if x > 0 { stroke } else { none },
     right: none,
-    top: if y == 0 or y == 1 { stroke } else { 0pt },
-    bottom: black + 0.5pt,
+    top: if y == 0 or y == 1 { stroke } else { none },
+    bottom: none,
   )
 
   let stroke-out = stroke
@@ -111,7 +111,10 @@
   }
 
   output-array.insert(0, table.cell(colspan: columns, inset: 0pt)[])
+  output-array.push(table.hline())
 
   table(..output-array, columns: columns, stroke: stroke-out, fill: fill, gutter: gutter, column-gutter: column-gutter, row-gutter: (2pt, auto), inset: inset, align: align)
 
 }
+
+#let nonumber = <equate:revoke>

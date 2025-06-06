@@ -17,7 +17,8 @@
 #import "local_functions.typ": *
 
 #let init(
-  japanese-title: [1A1　飛行機シンポジウム講演集原稿書式の見本],
+  number: [1A1],
+  japanese-title: [飛行機シンポジウム講演集原稿書式の見本],
   english-title: [How to Prepare the Paper for the 62st Aircraft Symposium of JSASS],
   author: (
       (
@@ -74,7 +75,7 @@
     scope: "parent",
     float: true,
   )[
-      #align(center, text(size: 16pt, japanese-title))
+      #align(center, text(size: 16pt, number + [　] + japanese-title))
 
       #set text(size: 10.5pt)
       #v(0.5em)
@@ -105,7 +106,10 @@
       // Abstract
       #align(center, [Abstract])
       #v(-0.45em)
-      #abstract
+      #align(left, {
+        set par(first-line-indent: 0em)
+        abstract
+      })
   ]
 
   // set headings for level 2, 3, 4...
@@ -179,6 +183,9 @@
     figure-number(num)
   )
 
+  set table(stroke: none)
+  set table.hline(stroke: 0.5pt)
+  set table.vline(stroke: 0.5pt)
   // code settings
   show raw.where(block: true): it => {
     set text(font: codef)
@@ -208,7 +215,7 @@
   set enum(indent: 2em, body-indent: 0.75em, spacing: 1em)
 
   // underline settings
-  set underline(offset: 4pt)
+  set underline(offset: 2pt)
 
   // footnote settings
   let footnote-numbering(.., last) = "*" * last

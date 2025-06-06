@@ -1,7 +1,31 @@
 
 #import "lib.typ": *
 
-#show: init
+#show: init.with(
+  number: [1A1],
+  japanese-title: [飛行機シンポジウム講演集原稿書式の見本],
+  english-title: [How to Prepare the Paper for the 62st Aircraft Symposium of JSASS],
+  author: (
+      (
+        japanese-name: [航空一郎],
+        english-name: [Ichiro Koku],
+        is-speaker: true,
+      ),
+      (
+        japanese-name: [宇宙花子],
+        english-name: [Hanako Uchu],
+        is-speaker: false,
+      ),
+    ),
+  statement: (
+    japanese: [日本航空宇宙学会],
+    english: [JSASS],
+  ),
+  keywords: ([Society Activities], [etc...]),
+  abstract: [
+    This is the manual for how to prepare your manuscript for the 62th Aircraft Symposium of Japan Society for Aeronautical and Space Science (JSASS). All the final drafts should be written by word processors with the format specified in this manual. Your final draft in a form ready for photo-printing must arrive at the Society Head-quarters by 9th August, 2024. Any questions regarding this manual should be addressed to headquarters.
+  ],
+)
 
 = はじめに
 
@@ -30,7 +54,7 @@
 （この文章は9.5ポイントの明朝体で作成されています．）
 
 = 追加事項
-本テンプレートは，元の書式には含まれないいくつかの設定を追加しています．
+本テンプレートは，元の書式には含まれない幾つかの設定を追加しています．
 
 ディスプレイ形式の数式は，
 $
@@ -48,23 +72,44 @@ $<math:shannon_entropy>
 for i in 1:10
   println("number : $i")
 end
-```
+```,
+placement: bottom,
+caption: [juliaのループ],
 )<code:julia-loop>
 のように表示されます．
 引用時には，@code:julia-loop のように参照できます．
 
 図を１行に配置したい場合には，以下のように書きます．
+図の位置としては，`top`と書くことで上部に配置され，`bottom`と書くことで下部に配置できます．
+表については，上のように専用関数`tblr`を使用すれすることで，整った形式で表示できます．
+引用は@table:格子数とレイノルズ数の関係 のようにされます．
 
 #figure(
   tblr(
     columns: 2,
     [格子数],[$64 times 64 times 64$],
-    [レイノルズ数 $"Re"_lambda$],[$100$]
+    [レイノルズ数 $"Re"_lambda$],[$100$],
   ),
   caption: [格子数とレイノルズ数の関係],
   scope: "parent",
   placement: top
 )<table:格子数とレイノルズ数の関係>
-図の位置としては，`top`と書くことで上部に配置され，`bottom`と書くことで下部に配置できます．
-表については，上のように専用関数`tblr`を使用すれすることで，整った形式で表示できます．
-引用は@table:格子数とレイノルズ数の関係 のようにされます．
+
+箇条書きは，
+
+- 1つ目の項目
+- 2つ目の項目
+
+のように表示されます．
+番号付きリストは，
+
++ 1つ目の項目
++ 2つ目の項目
+
+のように表示されます．
+
+下線を引く場合には，#underline[下線を引くテキスト] のように書きます．
+文字と被らないように，やや位置を調整してあります．
+
+注釈を挿入することも可能です．
+このように書く#footnote[注釈の中身]ことで，文書の下に注釈が追加されます．
