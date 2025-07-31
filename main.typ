@@ -1,5 +1,5 @@
 
-#import "lib.typ": *
+#import "Airplane-symposium-typst/lib.typ": *
 
 #show: init.with(
   number: [1A1],
