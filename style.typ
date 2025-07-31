@@ -3,7 +3,7 @@
 // setting up the font families
 #let mincho = ((name: "Times New Roman", covers: "latin-in-cjk"), "Harano Aji Mincho")
 #let gothic = ((name: "Helvetica", covers: "latin-in-cjk"), "Harano Aji Gothic")
-#let mathf = ("Latin Modern Math")
+#let mathf = ("Latin Modern Math", ..mincho)
 #let codef = ("Noto Mono for Powerline")
 
 // import packages
