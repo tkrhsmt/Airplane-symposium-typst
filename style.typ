@@ -27,17 +27,17 @@
         japanese-name: [航空一郎],
         english-name: [Ichiro Koku],
         is-speaker: true,
+        japanese-statement: none,
+        english-statement: none,
       ),
       (
         japanese-name: [宇宙花子],
         english-name: [Hanako Uchu],
         is-speaker: false,
+        japanese-statement: [日本航空宇宙学会],
+        english-statement: [JSASS],
       ),
     ),
-  statement: (
-    japanese: [日本航空宇宙学会],
-    english: [JSASS],
-  ),
   keywords: ([Society Activities], [etc...]),
   abstract: [
     This is the manual for how to prepare your manuscript for the 62th Aircraft Symposium of Japan Society for Aeronautical and Space Science (JSASS). All the final drafts should be written by word processors with the format specified in this manual. Your final draft in a form ready for photo-printing must arrive at the Society Head-quarters by 9th August, 2024. Any questions regarding this manual should be addressed to headquarters.
@@ -87,18 +87,29 @@
           sym.circle.big
         }
         name.japanese-name
+        if name.japanese-statement != none{
+          [（] + name.japanese-statement + [）]
+        }
         if num != author.len() - 1{
           [、]
           num += 1
         }
       }
-      （#statement.japanese）
 
       #v(0.5em)
       #english-title
 
-      #author.map(x => x.english-name).join([, ])
-      （#statement.english）
+      #let num = 0
+      #for name in author{
+        name.english-name
+        if name.english-statement != none{
+          [（] + name.english-statement + [）]
+        }
+        if num != author.len() - 1{
+          [, ]
+          num += 1
+        }
+      }
 
       #v(0.5em)
       Key Words:
